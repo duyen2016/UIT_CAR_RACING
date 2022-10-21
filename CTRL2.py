@@ -77,7 +77,7 @@ def ReadSensors():
 
 # Phần code điều khiển xe
 def DeterminePosition(filted):
-    if filted == 0b11100111 or filted == 0b11000011 or filted == 0b10000001:
+    if filted == 0b11100111:
         return MID
     elif (str_filted[0] == '0' and str_filted[5:8] == '111'): #or filted == 0b10000111 or str_filted[:4] == '0':
         return LEFT_VUONG
@@ -224,7 +224,7 @@ while robot.step(timestep) != -1:
             print('left 4')
         else:
             VongXuyen_Signal = True 
-    elif (filted == 0b00111100 or filted == 0b00011000 or filted == 0b01111110) and VongXuyen_Signal:
+    elif (filted == 0b00111100 or filted == 0b00011000 or filted == 0b01111110 or filted == 0b11000011) and VongXuyen_Signal:
         for i in range(10):
             robot.step(timestep)
             lm.setVelocity(0.15 * MAX_SPEED)
